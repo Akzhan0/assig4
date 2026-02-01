@@ -19,13 +19,11 @@ public class BookService {
     private final BookRepository bookRepository = new BookRepository();
     private final CategoryRepository categoryRepository = new CategoryRepository();
 
-    // чтобы controller.createBook(dto) работал
     public int addBook(BookCreateDto dto) {
         if (dto == null) {
             throw new InvalidInputException("dto is null");
         }
 
-        // ===== базовая валидация DTO =====
         if (dto.getTitle() == null || dto.getTitle().trim().isEmpty()) {
             throw new InvalidInputException("title must not be empty");
         }
@@ -39,13 +37,13 @@ public class BookService {
             throw new InvalidInputException("type is required (EBOOK / PRINTED)");
         }
 
-        // ===== 1) находим Category по id и НЕ даём ему быть null =====
+        // 1) находим Category по id и НЕ даём ему быть null 
         Category category = categoryRepository.findById(dto.getCategoryId());
         if (category == null) {
             throw new InvalidInputException("Category not found, id=" + dto.getCategoryId());
         }
 
-        // ===== 2) создаём объект книги по type =====
+        // 2) создаём объект книги по type 
         String type = dto.getType().trim();
         BookBase book;
 
@@ -68,7 +66,7 @@ public class BookService {
         // если у тебя validate() требует category != null — теперь всё ок
         book.validate();
 
-        // ===== 3) сохраняем в БД =====
+        // 3) сохраняем в БД 
         try {
             return bookRepository.create(book);
         } catch (Exception e) {
@@ -85,7 +83,7 @@ public class BookService {
         }
     }
 
-    // ===== Assignment 4: цикл (самый дорогой) =====
+    //цикл (самый дорогой)
     public BookBase getMostExpensive() {
         BookBase max = null;
 
@@ -97,14 +95,12 @@ public class BookService {
         return max;
     }
 
-    // ===== Assignment 4: stream sorting (вместо SortingUtils) =====
     public List<BookBase> sortByPriceAsc() {
         return getAllBooks().stream()
                 .sorted(Comparator.comparingDouble(BookBase::getPrice))
                 .collect(Collectors.toList());
     }
 
-    // ===== Assignment 4: stream filter =====
     public List<BookBase> filterByType(String type) {
         String t = (type == null) ? "" : type.trim();
         return getAllBooks().stream()
@@ -112,7 +108,6 @@ public class BookService {
                 .collect(Collectors.toList());
     }
 
-    // ===== Assignment 4: stream search =====
     public List<BookBase> searchByTitle(String text) {
         String q = (text == null) ? "" : text.trim().toLowerCase();
         return getAllBooks().stream()

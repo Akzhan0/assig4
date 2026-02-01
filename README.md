@@ -1,6 +1,6 @@
 # Assignment 4 – SOLID Library API
 
-## 📌 Project Description
+##  Project Description
 This project is a simple **Library Management API** implemented in Java using **OOP and SOLID principles**.  
 The system allows managing books of different types (**EBook** and **PrintedBook**) with database persistence and reflection utilities.
 
@@ -8,7 +8,7 @@ The project is structured using **Controller – Service – Repository** layers
 
 ---
 
-## 🧱 Project Structure
+##  Project Structure
 src/
 ├─ controller/
 │ └─ LibraryController.java
@@ -45,7 +45,7 @@ docs/
 
 ---
 
-## 🧠 OOP & SOLID Principles
+##  OOP & SOLID Principles
 - **Abstraction**: `BookBase` is an abstract class
 - **Inheritance**: `EBook` and `PrintedBook` extend `BookBase`
 - **Polymorphism**: methods like `getType()` and `fullInfo()` are overridden
@@ -54,7 +54,7 @@ docs/
 
 ---
 
-## ⚙️ Functionality
+##  Functionality
 - Create books (`EBook`, `PrintedBook`)
 - Read all books from database
 - Validation of input data
@@ -67,7 +67,7 @@ docs/
 
 ---
 
-## 🔍 Reflection
+##  Reflection
 The project uses `ReflectionUtils` to dynamically inspect:
 - Class name
 - Fields
@@ -79,7 +79,7 @@ Reflection output is shown in the console for:
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 1. Configure PostgreSQL database
 2. Execute `schema.sql`
 3. Run `Main.java`
@@ -87,7 +87,7 @@ Reflection output is shown in the console for:
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 Screenshots demonstrating:
 - Program execution
 - CRUD operations
@@ -101,7 +101,7 @@ docs/screenshots/
 
 ---
 
-## 👤 Author
+##  Author
 **AKZHAN**
 
 Assignment 4 – Object-Oriented Programming 

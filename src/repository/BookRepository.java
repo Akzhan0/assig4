@@ -13,7 +13,7 @@ import java.util.List;
 
 public class BookRepository {
 
-    // ====== CREATE (единый, читаемый) ======
+    // CREATE
     public int create(BookBase book) {
         if (book == null) {
             throw new InvalidInputException("book is null");
@@ -82,7 +82,7 @@ public class BookRepository {
         }
     }
 
-    // ====== READ ======
+    // READ 
     public List<BookBase> findAll() {
         List<BookBase> list = new ArrayList<>();
 

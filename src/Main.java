@@ -11,7 +11,7 @@ public class Main {
 
         LibraryController controller = new LibraryController();
 
-        // === CREATE ===
+        //  CREATE 
         BookCreateDto dto = new BookCreateDto();
         dto.setTitle("Clean Code");
         dto.setPrice(4500);
@@ -22,13 +22,13 @@ public class Main {
         int id = controller.createBook(dto);
         System.out.println("Created book id = " + id);
 
-        // === READ ===
+        //  READ 
         System.out.println("=== ALL BOOKS ===");
         for (BookBase b : controller.listBooks()) {
             System.out.println(b.shortInfo());
         }
 
-        // === REFLECTION ===
+        //  REFLECTION 
         System.out.println("\n=== REFLECTION: EBook ===");
         ReflectionUtils.printClassInfo(EBook.class);
 
